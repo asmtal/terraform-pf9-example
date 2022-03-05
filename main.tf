@@ -31,3 +31,19 @@ resource "pf9_azure_cloud_provider" "azure_provider" {
     subscription_id = "9aa6ae03-466d-4162-8457-9687a997befe"
     tenant_id       = "b38e7353-d045-4e5b-9ae4-ae80715d456d"
 }
+
+resource "pf9_cluster" "azure_cluster-1" {
+  project_uuid        = pf9_azure_cloud_provider.azure_provider.project_uuid
+  cloud_provider_uuid = pf9_azure_cloud_provider.azure_provider.id
+  name                = "azure-cluster-1"
+  ami                 = "ubuntu"
+  azs                 = ["us-east-1b"]
+  region              = "us-east-1"
+  containers_cidr     = "10.20.0.0/16"
+  services_cidr       = "10.21.0.0/16"
+  worker_flavor       = "t2.medium"
+  master_flavor       = "t2.medium"
+  ssh_key             = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCdEryX/VLN+on3YrWegvNIJM9FriiwLAeaH1Oqw4v6j6xQKjaZPc3wlbCT0fqu4Se1E9HdPNaeBa59SvL/VgVNwgpctDYTYIuh4oKyKwAz4ZGwGfDPL/Cyp6sFXnbBeanTjX6c29PuXKV4AiM+iC70jC6+LCA5NbXZnVFHckCYGupKZY/DQNSYhMqJy0IP2HuLAHgpK65uAKGP4H/f701ljQk5KL54APk3JU+3tBUs+F11viRV/zfFtZ1WJExLtlIuji7n4bKx9htP8VKdfyq3Vgl68hIhmwzQZBiI0RnEuxdJH55HJ+BpjmW6y/GiBnSpGfks1R4zCxKBBViwqN1x imported-openssh-key"
+  num_masters         = 1
+  num_workers         = 1
+}
