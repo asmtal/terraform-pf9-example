@@ -42,7 +42,7 @@ resource "pf9_cluster" "azure_cluster-1" {
   num_workers         = 1
   
   # azure-specific
-  location   = "northcentralus"
+  location   = "centralus"
   zones      = ["1"]
   ssh_key    = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCdEryX/VLN+on3YrWegvNIJM9FriiwLAeaH1Oqw4v6j6xQKjaZPc3wlbCT0fqu4Se1E9HdPNaeBa59SvL/VgVNwgpctDYTYIuh4oKyKwAz4ZGwGfDPL/Cyp6sFXnbBeanTjX6c29PuXKV4AiM+iC70jC6+LCA5NbXZnVFHckCYGupKZY/DQNSYhMqJy0IP2HuLAHgpK65uAKGP4H/f701ljQk5KL54APk3JU+3tBUs+F11viRV/zfFtZ1WJExLtlIuji7n4bKx9htP8VKdfyq3Vgl68hIhmwzQZBiI0RnEuxdJH55HJ+BpjmW6y/GiBnSpGfks1R4zCxKBBViwqN1x imported-openssh-key"
   master_sku = "Standard_A4_v2"
